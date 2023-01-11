@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
+:root {
+  --primary-soft-blue: hsl(215, 51%, 70%);
+  --primary-cyan: hsl(178, 100%, 50%);
+  --primary-cyan-alpha: hsla(178, 100%, 50%, 0.4);
+  --neutral-dark-blue-bg: hsl(217, 54%, 11%);
+  --neutral-dark-blue-card: hsl(216, 50%, 16%);
+  --neutral-dark-blue-line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* NFT Card Background */
+
+.nft-card-wrapper {
+  background-color: var(--neutral-dark-blue-bg);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* NFT Card Styles */
+
+.nft-card {
+  background-color: var(--neutral-dark-blue-card);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 27rem;
+}
+
+.nft-card__image {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  aspect-ratio: 1/1;
+}
+
+.nft-card__image::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  content: url(./images/icon-view.svg);
+  background-color: var(--primary-cyan-alpha);
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nft-card__image:hover::before {
+  opacity: 1;
+}
+
+.nft-card__image img {
+  object-fit: cover;
+}
+
+#nft-card__title {
+  color: var(--white);
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+#nft-card__title:hover {
+  color: var(--primary-cyan);
+}
+
+.nft-card__paragraph {
+  color: var(--primary-soft-blue);
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-block: 1rem;
+}
+
+.nft-card__price-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.nft-card__price {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.nft-card__price span {
+  display: flex;
+  align-items: center;
+}
+
+.nft-card__price p {
+  color: var(--primary-cyan);
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.nft-card__time {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.nft-card__time span {
+  display: flex;
+  align-items: center;
+}
+
+.nft-card__time p {
+  color: var(--primary-soft-blue);
+  font-weight: 600;
+}
+
+.nft-card__author-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--neutral-dark-blue-line);
+}
+
+.nft-card__author-wrapper img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nft-card__author-wrapper p {
+  color: var(--primary-soft-blue);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.nft-card__author-wrapper span {
+  color: var(--white);
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.nft-card__author-wrapper span:hover {
+  color: var(--primary-cyan);
+}
